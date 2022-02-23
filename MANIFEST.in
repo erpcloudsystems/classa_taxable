@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include classa_taxable *.css
+recursive-include classa_taxable *.csv
+recursive-include classa_taxable *.html
+recursive-include classa_taxable *.ico
+recursive-include classa_taxable *.js
+recursive-include classa_taxable *.json
+recursive-include classa_taxable *.md
+recursive-include classa_taxable *.png
+recursive-include classa_taxable *.py
+recursive-include classa_taxable *.svg
+recursive-include classa_taxable *.txt
+recursive-exclude classa_taxable *.pyc
