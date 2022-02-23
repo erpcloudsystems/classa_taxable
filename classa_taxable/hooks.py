@@ -9,19 +9,175 @@ app_color = "grey"
 app_email = "info@erpcloud.systems"
 app_license = "MIT"
 
+
+
+doc_events = {
+"Quotation": {
+	"onload": "classa_taxable.event_triggers.quot_onload",
+	"before_validate": "classa_taxable.event_triggers.quot_before_validate",
+	"validate": "classa_taxable.event_triggers.quot_validate",
+	"on_submit": "classa_taxable.event_triggers.quot_on_submit",
+	"on_cancel": "classa_taxable.event_triggers.quot_on_cancel",
+	"on_update_after_submit": "classa_taxable.event_triggers.quot_on_update_after_submit",
+	"before_save": "classa_taxable.event_triggers.quot_before_save",
+	"before_cancel": "classa_taxable.event_triggers.quot_before_cancel",
+	"on_update": "classa_taxable.event_triggers.quot_on_update",
+},
+	"Sales Invoice": {
+	"onload": "classa_taxable.event_triggers.siv_onload",
+	"before_validate": "classa_taxable.event_triggers.siv_before_validate",
+	"validate": "classa_taxable.event_triggers.siv_validate",
+	"on_submit": "classa_taxable.event_triggers.siv_on_submit",
+	"on_cancel": "classa_taxable.event_triggers.siv_on_cancel",
+	"on_update_after_submit": "classa_taxable.event_triggers.siv_on_update_after_submit",
+	"before_save": "classa_taxable.event_triggers.siv_before_save",
+	"before_cancel": "classa_taxable.event_triggers.siv_before_cancel",
+	"on_update": "classa_taxable.event_triggers.siv_on_update",
+},
+	"Sales Order": {
+		"after_insert": "classa_taxable.permission.share_so",
+		"onload": "classa_taxable.event_triggers.so_onload",
+		"before_validate": "classa_taxable.event_triggers.so_before_validate",
+		"validate": "classa_taxable.event_triggers.so_validate",
+		"on_submit": "classa_taxable.event_triggers.so_on_submit",
+		"on_cancel": "classa_taxable.event_triggers.so_on_cancel",
+		"on_update_after_submit": "classa_taxable.event_triggers.so_on_update_after_submit",
+		"before_save": "classa_taxable.event_triggers.so_before_save",
+		"before_cancel": "classa_taxable.event_triggers.so_before_cancel",
+		"on_update": "classa_taxable.event_triggers.so_on_update",
+
+},
+	"Material Request": {
+		"after_insert": "classa_taxable.permission.share_mr",
+		"onload": "classa_taxable.event_triggers.mr_onload",
+		"before_validate": "classa_taxable.event_triggers.mr_before_validate",
+		"validate": "classa_taxable.event_triggers.mr_validate",
+		"on_submit": "classa_taxable.event_triggers.mr_on_submit",
+		"on_cancel": "classa_taxable.event_triggers.mr_on_cancel",
+		"on_update_after_submit": "classa_taxable.event_triggers.mr_on_update_after_submit",
+		"before_save": "classa_taxable.event_triggers.mr_before_save",
+		"before_cancel": "classa_taxable.event_triggers.mr_before_cancel",
+		"on_update": "classa_taxable.event_triggers.mr_on_update",
+},
+	"Stock Entry": {
+		"after_insert": "classa_taxable.permission.share_se",
+		"onload": "classa_taxable.event_triggers.ste_onload",
+		"before_validate": "classa_taxable.event_triggers.ste_before_validate",
+		"validate": "classa_taxable.event_triggers.ste_validate",
+		"on_submit": "classa_taxable.event_triggers.ste_on_submit",
+		"on_cancel": "classa_taxable.event_triggers.ste_on_cancel",
+		"on_update_after_submit": "classa_taxable.event_triggers.ste_on_update_after_submit",
+		"before_save": "classa_taxable.event_triggers.ste_before_save",
+		"before_cancel": "classa_taxable.event_triggers.ste_before_cancel",
+		"on_update": "classa_taxable.event_triggers.ste_on_update",
+},
+	"Delivery Note": {
+		"after_insert": "classa_taxable.permission.share_dn",
+		"onload": "classa_taxable.event_triggers.dn_onload",
+		"before_validate": "classa_taxable.event_triggers.dn_before_validate",
+		"validate": "classa_taxable.event_triggers.dn_validate",
+		"on_submit": "classa_taxable.event_triggers.dn_on_submit",
+		"on_cancel": "classa_taxable.event_triggers.dn_on_cancel",
+		"on_update_after_submit": "classa_taxable.event_triggers.dn_on_update_after_submit",
+		"before_save": "classa_taxable.event_triggers.dn_before_save",
+		"before_cancel": "classa_taxable.event_triggers.dn_before_cancel",
+		"on_update": "classa_taxable.event_triggers.dn_on_update",
+},
+	"Purchase Order": {
+		"after_insert": "classa_taxable.permission.share_po",
+		"onload": "classa_taxable.event_triggers.po_onload",
+		"before_validate": "classa_taxable.event_triggers.po_before_validate",
+		"validate": "classa_taxable.event_triggers.po_validate",
+		"on_submit": "classa_taxable.event_triggers.po_on_submit",
+		"on_cancel": "classa_taxable.event_triggers.po_on_cancel",
+		"on_update_after_submit": "classa_taxable.event_triggers.po_on_update_after_submit",
+		"before_save": "classa_taxable.event_triggers.po_before_save",
+		"before_cancel": "classa_taxable.event_triggers.po_before_cancel",
+		"on_update": "classa_taxable.event_triggers.po_on_update",
+},
+	"Purchase Receipt": {
+		"after_insert": "classa_taxable.permission.share_pr",
+		"onload": "classa_taxable.event_triggers.pr_onload",
+		"before_validate": "classa_taxable.event_triggers.pr_before_validate",
+		"validate": "classa_taxable.event_triggers.pr_validate",
+		"on_submit": "classa_taxable.event_triggers.pr_on_submit",
+		"on_cancel": "classa_taxable.event_triggers.pr_on_cancel",
+		"on_update_after_submit": "classa_taxable.event_triggers.pr_on_update_after_submit",
+		"before_save": "classa_taxable.event_triggers.pr_before_save",
+		"before_cancel": "classa_taxable.event_triggers.pr_before_cancel",
+		"on_update": "classa_taxable.event_triggers.pr_on_update",
+},
+	"Purchase Invoice": {
+		"onload": "classa_taxable.event_triggers.piv_onload",
+		"before_validate": "classa_taxable.event_triggers.piv_before_validate",
+		"validate": "classa_taxable.event_triggers.piv_validate",
+		"on_submit": "classa_taxable.event_triggers.piv_on_submit",
+		"on_cancel": "classa_taxable.event_triggers.piv_on_cancel",
+		"on_update_after_submit": "classa_taxable.event_triggers.piv_on_update_after_submit",
+		"before_save": "classa_taxable.event_triggers.piv_before_save",
+		"before_cancel": "classa_taxable.event_triggers.piv_before_cancel",
+		"on_update": "classa_taxable.event_triggers.piv_on_update",
+},
+	"Payment Entry": {
+		"after_insert": "classa_taxable.permission.share_pe",
+		"onload": "classa_taxable.event_triggers.pe_onload",
+		"before_validate": "classa_taxable.event_triggers.pe_before_validate",
+		"validate": "classa_taxable.event_triggers.pe_validate",
+		"on_submit": "classa_taxable.event_triggers.pe_on_submit",
+		"on_cancel": "classa_taxable.event_triggers.pe_on_cancel",
+		"on_update_after_submit": "classa_taxable.event_triggers.pe_on_update_after_submit",
+		"before_save": "classa_taxable.event_triggers.pe_before_save",
+		"before_cancel": "classa_taxable.event_triggers.pe_before_cancel",
+		"on_update": "classa_taxable.event_triggers.pe_on_update",
+},
+	"Blanket Order": {
+		"onload": "classa_taxable.event_triggers.blank_onload",
+		"before_validate": "classa_taxable.event_triggers.blank_before_validate",
+		"validate": "classa_taxable.event_triggers.blank_validate",
+		"on_submit": "classa_taxable.event_triggers.blank_on_submit",
+		"on_cancel": "classa_taxable.event_triggers.blank_on_cancel",
+		"on_update_after_submit": "classa_taxable.event_triggers.blank_on_update_after_submit",
+		"before_save": "classa_taxable.event_triggers.blank_before_save",
+		"before_cancel": "classa_taxable.event_triggers.blank_before_cancel",
+		"on_update": "classa_taxable.event_triggers.blank_on_update",
+},
+	"Expense Claim": {
+		"onload": "classa_taxable.event_triggers.excl_onload",
+		"before_validate": "classa_taxable.event_triggers.excl_before_validate",
+		"validate": "classa_taxable.event_triggers.excl_validate",
+		"on_submit": "classa_taxable.event_triggers.excl_on_submit",
+		"on_cancel": "classa_taxable.event_triggers.excl_on_cancel",
+		"on_update_after_submit": "classa_taxable.event_triggers.excl_on_update_after_submit",
+		"before_save": "classa_taxable.event_triggers.excl_before_save",
+		"before_cancel": "classa_taxable.event_triggers.excl_before_cancel",
+		"on_update": "classa_taxable.event_triggers.excl_on_update",
+},
+"Employee Advance": {
+		"onload": "classa_taxable.event_triggers.emad_onload",
+		"before_validate": "classa_taxable.event_triggers.emad_before_validate",
+		"validate": "classa_taxable.event_triggers.emad_validate",
+		"on_submit": "classa_taxable.event_triggers.emad_on_submit",
+		"on_cancel": "classa_taxable.event_triggers.emad_on_cancel",
+		"on_update_after_submit": "classa_taxable.event_triggers.emad_on_update_after_submit",
+		"before_save": "classa_taxable.event_triggers.emad_before_save",
+		"before_cancel": "classa_taxable.event_triggers.emad_before_cancel",
+		"on_update": "classa_taxable.event_triggers.emad_on_update",
+},
+}
+
+
 # Includes in <head>
 # ------------------
-
 # include js, css files in header of desk.html
-# app_include_css = "/assets/classa_taxable/css/classa_taxable.css"
-# app_include_js = "/assets/classa_taxable/js/classa_taxable.js"
+# app_include_css = "/assets/classa/css/classa_taxable.css"
+# app_include_js = "/assets/classa/js/classa_taxable.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/classa_taxable/css/classa_taxable.css"
-# web_include_js = "/assets/classa_taxable/js/classa_taxable.js"
+# web_include_css = "/assets/classa/css/classa_taxable.css"
+# web_include_js = "/assets/classa/js/classa_taxable.js"
 
 # include custom scss in every website theme (without file extension ".scss")
-# website_theme_scss = "classa_taxable/public/scss/website"
+# website_theme_scss = "classa/public/scss/website"
 
 # include js, css files in header of web form
 # webform_include_js = {"doctype": "public/js/doctype.js"}
