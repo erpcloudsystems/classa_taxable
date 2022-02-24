@@ -24,6 +24,7 @@ doc_events = {
 	"on_update": "classa_taxable.event_triggers.quot_on_update",
 },
 	"Sales Invoice": {
+	"before_insert": "classa_taxable.event_triggers.sinv_before_insert",
 	"onload": "classa_taxable.event_triggers.siv_onload",
 	"before_validate": "classa_taxable.event_triggers.siv_before_validate",
 	"validate": "classa_taxable.event_triggers.siv_validate",
