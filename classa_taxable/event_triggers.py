@@ -137,30 +137,8 @@ def dn_on_update(doc, method=None):
 
 
 @frappe.whitelist()
-@frappe.whitelist()
 def sinv_before_insert(doc, method=None):
-    if doc.tax_type == "Taxable":
-        doc.set("taxes", [])
-        new_taxes = 0
-        for d in doc.items:
-            if d.item_tax_template:
-                item_tax_rate = frappe.db.get_value("Item Tax Template Detail", {'parent': d.item_tax_template},
-                                                    "tax_rate")
-                d.tax_amount = d.net_amount * item_tax_rate / 100
-                new_taxes += d.tax_amount
-
-        taxes1 = doc.append("taxes", {})
-        taxes1.charge_type = "On Net Total"
-        taxes1.account_head = "2301 - ضريبة القيمة المضافة VAT - CA"
-        taxes1.description = "2301 - ضريبة القيمة المضافة VAT"
-        taxes1.rate = 0
-        taxes1.account_currency = "EGP"
-        taxes1.tax_amount = new_taxes
-        taxes1.total = doc.total + new_taxes
-        taxes1.base_tax_amount = new_taxes
-        taxes1.base_total = doc.total + new_taxes
-        taxes1.tax_amount_after_discount_amount = new_taxes
-        taxes1.base_tax_amount_after_discount_amount = new_taxes
+    pass
 def siv_onload(doc, method=None):
     pass
 @frappe.whitelist()
@@ -171,28 +149,7 @@ def siv_validate(doc, method=None):
     pass
 @frappe.whitelist()
 def siv_on_submit(doc, method=None):
-    if doc.tax_type == "Taxable":
-        doc.set("taxes", [])
-        new_taxes = 0
-        for d in doc.items:
-            if d.item_tax_template:
-                item_tax_rate = frappe.db.get_value("Item Tax Template Detail", {'parent': d.item_tax_template},
-                                                    "tax_rate")
-                d.tax_amount = d.net_amount * item_tax_rate / 100
-                new_taxes += d.tax_amount
-
-        taxes1 = doc.append("taxes", {})
-        taxes1.charge_type = "On Net Total"
-        taxes1.account_head = "2301 - ضريبة القيمة المضافة VAT - CA"
-        taxes1.description = "2301 - ضريبة القيمة المضافة VAT"
-        taxes1.rate = 0
-        taxes1.account_currency = "EGP"
-        taxes1.tax_amount = new_taxes
-        taxes1.total = doc.total + new_taxes
-        taxes1.base_tax_amount = new_taxes
-        taxes1.base_total = doc.total + new_taxes
-        taxes1.tax_amount_after_discount_amount = new_taxes
-        taxes1.base_tax_amount_after_discount_amount = new_taxes
+    pass
 @frappe.whitelist()
 def siv_on_cancel(doc, method=None):
     pass
